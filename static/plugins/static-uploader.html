@@ -1,0 +1,79 @@
+<template id="file-selector">
+    <div>
+        <a @click="pickImage()">
+            <i class="fa fa-upload" :class="[this.uploading ? 'fa-spin' : '']"></i>
+            <input
+                @change="uploadFile($event)"
+                id="FileUploader"
+                type="file"
+                style="display: none; width: 0; height: 0;">
+        </a>
+    </div>
+</template>
+
+<script>
+kiwi.plugin('fileshare', function(kiwi, log) {
+    var FILE_MAX_SIZE = 52428800;
+    var UPLOAD_URL = 'https://filehost.ptirc.org/';
+
+    var fileSelector = new kiwi.Vue({
+        template: '#file-selector',
+        data: function data() {
+            return {
+                uploading: false,
+            };
+        },
+        methods: {
+            pickImage: function pickImage() {
+                if (this.uploading) {
+                    return;
+                }
+                document.querySelector('#FileUploader').click();
+            },
+            uploadFile: function uploadFile(event) {
+                var file = event.target.files[0];
+                if (!file) {
+                    return;
+                }
+                if (!file.size >= FILE_MAX_SIZE) {
+                    this.sendMessage('File Upload: Sorry, file size limit is ${FILE_MAX_SIZE} bytes (50MB), you tried to upload ${file.size} bytes.', 'error');
+                    return;
+                }
+                var self = this;
+                var fd = new FormData();
+                fd.append('file', file);
+                var xhttp = new XMLHttpRequest();
+                xhttp.open('POST', UPLOAD_URL);
+                xhttp.onload = function () {
+                    if (xhttp.status === 200 && xhttp.responseText && xhttp.responseText.indexOf(UPLOAD_URL) === 0) {
+                        var buffer = kiwi.state.getActiveBuffer();
+                        buffer.say('File Upload: ' + xhttp.responseText);
+                    } else {
+                        self.sendMessage('File Upload: Failed :(', 'error');
+                        console.error('Upload Failed', xhttp.status, xhttp.statusText);
+                    }
+                    self.uploading = false;
+                };
+                xhttp.onerror = function () {
+                    self.sendMessage('File Upload: Failed :(', 'error');
+                    console.error('Upload Failed', xhttp.status, xhttp.statusText);
+                    self.uploading = false;
+                };
+                xhttp.send(fd);
+                this.uploading = true;
+            },
+            sendMessage: function sendMessage(message, type) {
+                var buffer = this.$state.getActiveBuffer();
+                this.$state.addMessage(buffer, {
+                    time: Date.now(),
+                    nick: '',
+                    message: message,
+                    type: type,
+                });
+            },
+        },
+    });
+
+    kiwi.addUi('input', fileSelector.$mount().$el);
+});
+</script>

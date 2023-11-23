@@ -1,0 +1,20 @@
+[
+    {
+        "name": "OneFM Radio",
+		"image": "https://onefm.sytes.net/logo.svg",
+        "source": "https://onefm.sytes.net:8002/stream",
+        "description": "OneFM Radio - Your Online Radio"
+    },
+    {
+        "name": "Costa del Mar",
+		"image": "https://d3kle7qwymxpcy.cloudfront.net/images/broadcasts/53/cd/101387/1/c300.png",
+        "source": "https://onefm.sytes.net:8002/dance",
+        "description": "Costa del Mar - Ibiza"
+    },
+    {
+        "name": "Gay FM",
+		"image": "https://www.radio.fr/images/broadcasts/e0/69/2297/c300.png",
+        "source": "https://onefm.sytes.net:8002/gayfm",
+        "description": "Gay FM"
+    }
+]

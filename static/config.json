@@ -1,0 +1,126 @@
+{
+	"windowTitle": "PTirc Web Chat",
+	"startupScreen": "welcome",
+	"restricted": true,
+	"theme": "Dark",
+	"useMonospace": true,
+	"warnOnExit" : false,
+	"showAutoComplete": true,
+	"showSendButton": false,
+	"sidebarDefault": "nicklist",
+	"showColorPicker": false,
+	"showEmojiPicker": true,
+	"showAwayStatusIndicators": true,
+	"noticeActiveBuffer": true,
+	"quitMessage": "PTirc Web Chat - https://chat.ptirc.org",
+	"themes": [
+		{ "name": "Default", "url": "static/themes/default" },
+		{ "name": "Dark", "url": "static/themes/dark" },
+		{ "name": "Coffee", "url": "static/themes/coffee" },
+		{ "name": "GrayFox", "url": "static/themes/grayfox" },
+		{ "name": "Nightswatch", "url": "static/themes/nightswatch" },
+		{ "name": "Osprey", "url": "static/themes/osprey" },
+		{ "name": "Radioactive", "url": "static/themes/radioactive" },
+		{ "name": "Sky", "url": "static/themes/sky" },
+		{ "name": "Elite", "url": "static/themes/elite" }
+	],
+	"buffers": {
+		"messageLayout": "modern",
+		"alert_on": "highlight",
+		"timestamp_format": "%H:%M:%S",
+		"show_timestamps": true,
+		"scrollback_size": 250,
+		"show_hostnames": true,
+		"show_joinparts": true,
+		"show_topics": true,
+		"show_nick_changes": true,
+		"show_mode_changes": true,
+		"traffic_as_activity": false,
+		"coloured_nicklist": true,
+		"colour_nicknames_in_messages": true,
+		"block_pms": false,
+		"show_emoticons": true,
+		"extra_formatting": true,
+		"mute_sound": false,
+		"hide_message_counts": false,
+		"show_realnames": false,
+		"default_ban_mask": "*!%i@%h",
+		"default_kick_reason": "Your behavior is not conducive to the desired environment.",
+		"shared_input": false,
+		"show_message_info": false,
+		"who_loop": false,
+		"share_typing": false,
+		"flash_title": "highlight",
+		"nicklist_avatars": true,
+		"show_link_previews": true,
+		"inline_link_auto_previews": false
+	},
+	"startupOptions": {
+		"server": "irc3.ptirc.org",
+		"port": 7966,
+		"tls": true,
+		"direct": true,
+		"channel": "#Portugal",
+		"nick": "PTirc_?",
+		"gecos": "PTirc Web Chat - https://chat.ptirc.org",
+		// For white backgrounds
+		//"greetingText": "<img src='https://chat.ptirc.org/static/img/PTirc_sem_fundo_rsz.png'></img><br/>Bem vindo(a)!<hr>Welcome!",
+		// For dark backgrounds
+		"greetingText": "<img src='static/img/PTirc_Dark_1.png' width='220'><br/><hr>Bem vindo(a)!<br/>Welcome!<hr>",
+		"infoContent": "<center><embed src='static/img/text.html' style='overflow:hidden' width='100%' height='210px'></center>",
+		//"infoBackground": "https://source.unsplash.com/random/?sky,night",
+		"state_key": false
+	},
+	"embedly": {
+		"key": ""
+	},
+	"plugins": [
+		//{ "name": "avatars", "url": "static/plugins/avatars.js" },
+		{ "name": "conference", "url": "static/plugins/plugin-conference.js" },
+		{ "name": "custom-ident", "url": "static/plugins/custom-ident.html" },
+		{ "name": "emoji", "url": "static/plugins/plugin-emojis-prelim.js" },
+		{ "name": "plugin-radio", "url": "static/plugins/plugin-radio.html" },
+		{ "name": "avatars", "url": "static/plugins/avatars/plugin-avatars.js" },
+		//{ "name": "static-uploader", "url": "static/plugins/static-uploader.html" },
+		{ "name": "fileuploader", "url": "static/plugins/plugin-fileuploader.js" },
+	],
+	"conference": {
+		"secure": false,
+		"server": "jitsi.ptirc.org",
+		"queries": true,
+		"channels": true,
+		"enabledInChannels": ["*"],
+		"inviteText": "{{ nick }} is inviting you to a private call.",
+		"joinText": "{{ nick }} started a video call conference.",
+		"joinButtonText": "Join now!",
+		"showLink": true,
+		"useLinkShortener": false,
+		"linkShortenerURL": "https://x0.no/api/?{{ link }}",
+		"configOverwrite": {
+			"startWithVideoMuted": false,
+			"startWithAudioMuted": false,
+		},
+	},
+	"plugin-emojis": {
+		"parseEmoticons": false,
+		"sendNativeEmojis": true,
+		"emojiSet": "google",
+		"customEmojis": [
+			{ "name": "ptirc", "short_names": ["ptirc"], "imageUrl": "static/img/favicon.png" },
+		],
+	},
+	"plugin-radio": {
+		"url": "static/plugins/stations.json",
+		"active": "OneFM Radio",
+		"showWave": true
+	},
+	"fileuploader": {
+		"server": "https://chat.ptirc.org/files/",
+		"maxFileSize": 52428800,
+		"note": "All uploads are deleted after 24h."
+	},
+	"plugin-avatars" : {
+		"path": "static/plugins/avatars/plugin-avatars-%style%.js",
+		"style": "avataaars"
+	}
+}
