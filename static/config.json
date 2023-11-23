@@ -63,9 +63,6 @@
 		"channel": "#Portugal",
 		"nick": "PTirc_?",
 		"gecos": "PTirc Web Chat - https://chat.ptirc.org",
-		// For white backgrounds
-		//"greetingText": "<img src='https://chat.ptirc.org/static/img/PTirc_sem_fundo_rsz.png'></img><br/>Bem vindo(a)!<hr>Welcome!",
-		// For dark backgrounds
 		"greetingText": "<img src='static/img/PTirc_Dark_1.png' width='220'><br/><hr>Bem vindo(a)!<br/>Welcome!<hr>",
 		"infoContent": "<center><embed src='static/img/text.html' style='overflow:hidden' width='100%' height='210px'></center>",
 		//"infoBackground": "https://source.unsplash.com/random/?sky,night",
