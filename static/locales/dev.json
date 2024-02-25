@@ -43,6 +43,7 @@
     "ignore_user": "Ignore user",
     "connection_channel": "Channel",
     "away": "Away",
+    "toggle_away": "Toggle Away Status",
     "week": "{{count}} week",
     "week_plural": "{{count}} weeks",
     "day": "{{count}} day",
